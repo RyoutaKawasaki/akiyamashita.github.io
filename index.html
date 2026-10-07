@@ -307,6 +307,14 @@ p,li,.card,.lists div{text-wrap:pretty}
 @media(max-width:720px){.eps{flex-direction:column;align-items:center}.ep{width:100%;max-width:none}.arrow{flex:0 0 40px;height:40px}.arrow i{width:6px;height:100%;background:repeating-linear-gradient(180deg,var(--sky) 0 10px,transparent 10px 18px);animation:arrv 1s linear infinite}.arrow i:after{right:auto;left:-7px;top:auto;bottom:-6px;border:10px solid transparent;border-top:13px solid var(--sky);border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:0}}
 @keyframes arrv{to{background-position:0 18px}}
 
+@media(max-width:720px){
+.hero .tag{font-size:16px;padding:5px 18px;margin-bottom:18px}
+.hero h1{font-size:clamp(44px,11.8vw,48px);line-height:1.04;margin-bottom:.25em}
+.hero .lead{font-size:clamp(26px,6.8vw,28px);line-height:1.32;margin-bottom:.72em}
+.hero-runway{height:clamp(74px,14svh,100px);margin-top:0}
+.scroll{bottom:max(78px,calc(env(safe-area-inset-bottom,0px) + 72px))}
+}
+
 @media(prefers-reduced-motion:reduce){.o-ring,.in-c,.ep.now,.arrow i{animation:none!important}.why-h,.heart,.flash,.flash .fl,.star,.why-n:after,.why .spark{animation:none!important}.sun,.waves,.runner,.runner-track,.hero:before,.photo:before,.spark,.scroll{animation:none!important}.runner-track{left:auto;right:3%}}
 </style></head><body>
 <nav><div id="bar"></div></nav>
