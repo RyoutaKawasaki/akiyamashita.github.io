@@ -152,7 +152,7 @@ section{padding:64px 18px}
 .hero:before{width:260vw;height:260vw;margin-left:-130vw;top:-20%}
 .hero{padding-top:clamp(18px,5svh,40px);padding-bottom:max(46px,calc(env(safe-area-inset-bottom,0px) + 42px))}
 .sun{width:60vw;right:-16vw;top:3%}
-.hero-runway{height:clamp(86px,18svh,130px);margin-top:2px}.runner-track{left:-135px;bottom:14px}.runner{width:min(32vw,130px);opacity:.96}
+.hero-runway{height:clamp(80px,16svh,118px);margin-top:0}.runner-track{left:-135px;bottom:14px}.runner{width:min(32vw,130px);opacity:.96}
 .spot:before,.finish:before{animation:none}
 .spot .card{backdrop-filter:none;background:rgba(255,255,255,.14)}
 .photo{width:min(78vw,280px)}
@@ -306,6 +306,13 @@ p,li,.card,.lists div{text-wrap:pretty}
 @keyframes arr{to{background-position:18px 0}}
 @media(max-width:720px){.eps{flex-direction:column;align-items:center}.ep{width:100%;max-width:none}.arrow{flex:0 0 40px;height:40px}.arrow i{width:6px;height:100%;background:repeating-linear-gradient(180deg,var(--sky) 0 10px,transparent 10px 18px);animation:arrv 1s linear infinite}.arrow i:after{right:auto;left:-7px;top:auto;bottom:-6px;border:10px solid transparent;border-top:13px solid var(--sky);border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:0}}
 @keyframes arrv{to{background-position:0 18px}}
+
+@media(max-width:720px){
+.hero h1{font-size:clamp(42px,11.8vw,50px);line-height:1.06;margin-bottom:.28em}
+.hero .lead{font-size:clamp(24px,6.7vw,29px);line-height:1.35;margin-bottom:.8em}
+.hero .duo{font-size:clamp(14px,4vw,17px);line-height:1.5;padding:9px 14px;margin-bottom:14px}
+.hero .sub{font-size:clamp(17px,4.6vw,19px);line-height:1.55;margin-bottom:.7em}
+}
 
 @media(prefers-reduced-motion:reduce){.o-ring,.in-c,.ep.now,.arrow i{animation:none!important}.why-h,.heart,.flash,.flash .fl,.star,.why-n:after,.why .spark{animation:none!important}.sun,.waves,.runner,.runner-track,.hero:before,.photo:before,.spark,.scroll{animation:none!important}.runner-track{left:auto;right:3%}}
 </style></head><body>
