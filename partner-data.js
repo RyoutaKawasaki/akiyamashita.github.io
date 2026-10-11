@@ -11,7 +11,7 @@
   空欄（""）の区間は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
-  updated: "2026.10.11",
+  updated: "2026.10.12",
   partners: {
     1: "",
     2: "",
@@ -39,7 +39,7 @@ window.PARTNER_MAP_DATA = {
     24: "",
     25: "",
     26: "",
-    27: { name: "八木真理子\n株式会社ラフスタイル", url: "https://laughstyle.net/" },
+    27: { name: "八木真理子\nデザインで応援する人", url: "https://www.instagram.com/laughstyle_y/" },
     28: "",
     29: "",
     30: "",
