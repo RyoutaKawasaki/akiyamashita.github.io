@@ -39,7 +39,7 @@ window.PARTNER_MAP_DATA = {
     24: "",
     25: "",
     26: "",
-    27: { name: "八木真理子\nデザインで応援する人", url: "https://www.instagram.com/laughstyle_y/" },
+    27: { name: "八木真理子\n株式会社ラフスタイル", url: "https://laughstyle.net/" },
     28: "",
     29: "",
     30: "",

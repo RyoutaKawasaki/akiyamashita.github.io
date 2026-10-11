@@ -40,7 +40,7 @@ h1{margin:0;font-size:clamp(38px,7.5vw,82px);line-height:1.05;letter-spacing:-.0
 .map-frame{position:relative;border:2px solid rgba(30,53,87,.14);border-radius:30px;background:#9BDDF0;box-shadow:0 26px 60px -34px rgba(30,53,87,.58);overflow:hidden}.map-frame:before,.map-frame:after{content:"";position:absolute;z-index:3;top:0;bottom:0;width:42px;pointer-events:none}.map-frame:before{left:0;background:linear-gradient(90deg,rgba(22,53,86,.2),transparent)}.map-frame:after{right:0;background:linear-gradient(270deg,rgba(22,53,86,.2),transparent)}
 .map-scroll{position:relative;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior-inline:contain;scrollbar-color:var(--sun) rgba(255,255,255,.55);scrollbar-width:thin}.map-scroll::-webkit-scrollbar{height:11px}.map-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.58)}.map-scroll::-webkit-scrollbar-thumb{border:3px solid rgba(255,255,255,.75);border-radius:20px;background:var(--sun)}
 .map-stage{width:3600px;height:720px}.course-map{display:block;width:100%;height:100%;font-family:"Zen Kaku Gothic New","Yu Gothic",sans-serif}.map-label{fill:#1E3557;font-weight:900;letter-spacing:.1em}.map-label.light{fill:#fff}.map-sub-label{fill:#4C6A77;font-size:18px;font-weight:700}.route-shadow{fill:none;stroke:rgba(18,75,101,.18);stroke-width:33;stroke-linecap:round;stroke-linejoin:round}.route-bed{fill:none;stroke:#fff;stroke-width:26;stroke-linecap:round;stroke-linejoin:round}.route-segment{fill:none;stroke:#B8CDD3;stroke-width:14;stroke-linecap:round;stroke-dasharray:7 10;transition:stroke .4s}.route-segment.filled{stroke:var(--segment-color);stroke-dasharray:none;filter:url(#route-glow)}
-.route-marker .halo{fill:none;stroke:rgba(255,255,255,.6);stroke-width:10}.route-marker .dot{fill:#fff;stroke:#8DAEBB;stroke-width:5}.route-marker .number{fill:#4C6975;font-size:14px;font-weight:900;text-anchor:middle;dominant-baseline:central}.route-marker.filled .dot{fill:var(--marker-color);stroke:#fff;stroke-width:5;filter:url(#marker-shadow)}.route-marker.filled .number{fill:#fff}.partner-connector{stroke:var(--label-color);stroke-width:3;stroke-dasharray:5 5}.partner-label{position:relative;height:100%;display:flex;align-items:center;justify-content:center;padding:3px 5px;border:2px solid #fff;border-radius:12px;background:var(--label-color);color:#fff;text-align:center;text-decoration:none;white-space:pre-line;font-size:12px;font-weight:500;line-height:1.25;box-shadow:0 9px 18px rgba(30,53,87,.24);overflow-wrap:anywhere;transition:transform .2s,filter .2s}.partner-label[href]{cursor:pointer}.partner-label[href]:hover{transform:translateY(-2px);filter:brightness(.84)}.partner-label[href]:after{content:"↗";position:absolute;right:5px;top:3px;font-size:9px}.course-spot{pointer-events:none}.course-spot text{fill:#1E3557;font-size:13px;font-weight:900;text-anchor:middle;paint-order:stroke;stroke:rgba(255,255,255,.94);stroke-width:5px;stroke-linejoin:round}.course-spot .spot-km{fill:#FF557E;font-size:11px;letter-spacing:.05em}.start-flag,.goal-flag{filter:url(#marker-shadow)}.start-burst{stroke:#fff;stroke-width:3;stroke-linejoin:round;transform-box:fill-box;transform-origin:center;animation:start-spin 12s linear infinite}
+.route-marker .halo{fill:none;stroke:rgba(255,255,255,.6);stroke-width:10}.route-marker .dot{fill:#fff;stroke:#8DAEBB;stroke-width:5}.route-marker .number{fill:#4C6975;font-size:14px;font-weight:900;text-anchor:middle;dominant-baseline:central}.route-marker.filled .dot{fill:var(--marker-color);stroke:#fff;stroke-width:5;filter:url(#marker-shadow)}.route-marker.filled .number{fill:#fff}.partner-connector{stroke:var(--label-color);stroke-width:3;stroke-dasharray:5 5}.partner-card{cursor:default}.partner-card[href]{cursor:pointer}.partner-card-bg{fill:var(--label-color);stroke:#fff;stroke-width:2;filter:url(#marker-shadow);transition:fill .2s}.partner-card[href]:hover .partner-card-bg{fill:#142A49}.partner-card-text{fill:#fff;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:central;pointer-events:none}.partner-card-arrow{fill:#fff;font-size:9px;text-anchor:middle;dominant-baseline:central;pointer-events:none}.course-spot{pointer-events:none}.course-spot text{fill:#1E3557;font-size:13px;font-weight:900;text-anchor:middle;paint-order:stroke;stroke:rgba(255,255,255,.94);stroke-width:5px;stroke-linejoin:round}.course-spot .spot-km{fill:#FF557E;font-size:11px;letter-spacing:.05em}.start-flag,.goal-flag{filter:url(#marker-shadow)}.start-burst{stroke:#fff;stroke-width:3;stroke-linejoin:round;transform-box:fill-box;transform-origin:center;animation:start-spin 12s linear infinite}
 @keyframes start-spin{to{transform:rotate(360deg)}}
 .message{max-width:720px;margin:38px auto 0;text-align:center}.message h2{margin:0 0 12px;font-size:clamp(25px,4vw,38px)}.message p{margin:0;color:var(--sub)}
 .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:900}.button.primary{background:linear-gradient(90deg,var(--sky),var(--mint));color:#fff;box-shadow:0 14px 28px -15px rgba(31,165,222,.75)}.button.secondary{background:#fff;border:2px solid var(--ink)}
@@ -103,7 +103,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
 </main>
 <footer>Make a Move, World is Yours.｜人生は可能性に溢れている</footer>
 
-<script src="partner-data.js?v=20261011-2"></script>
+<script src="partner-data.js?v=20261011-3"></script>
 <script>
 (function(){
   var data=window.PARTNER_MAP_DATA||{updated:"—",partners:{}};
@@ -111,7 +111,6 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
   var colors=["#1FA5DE","#2FC9A0","#FFB92E","#FF9A5C","#FF6B8B","#8E6BFF"];
   var labelColors=["#1E3557"];
   var svgNS="http://www.w3.org/2000/svg";
-  var xhtmlNS="http://www.w3.org/1999/xhtml";
   var baseLayer=document.getElementById("route-base-layer");
   var segmentLayer=document.getElementById("route-segment-layer");
   var spotLayer=document.getElementById("route-spot-layer");
@@ -146,6 +145,22 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
       values.push((cx+Math.cos(angle)*radius).toFixed(1)+","+(cy+Math.sin(angle)*radius).toFixed(1));
     }
     return values.join(" ");
+  }
+  function partnerLabelLines(value){
+    var lines=[];
+    String(value).split(/\n/).forEach(function(source){
+      var text=source.trim();
+      while(text.length>12){
+        lines.push(text.slice(0,12));
+        text=text.slice(12);
+      }
+      if(text) lines.push(text);
+    });
+    if(lines.length>3){
+      lines=lines.slice(0,3);
+      lines[2]=lines[2].slice(0,11)+"…";
+    }
+    return lines.length?lines:[""];
   }
   var routePath=points.map(function(p,i){return(i?"L":"M")+p.x.toFixed(1)+" "+p.y.toFixed(1);}).join(" ");
   baseLayer.appendChild(svgElement("path",{d:routePath,"class":"route-shadow"}));
@@ -217,9 +232,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
       var labelY=above?to.y-164:to.y+102;
       var connector=svgElement("line",{x1:to.x,y1:to.y+(above?-26:26),x2:to.x,y2:above?labelY+58:labelY,"class":"partner-connector"});
       group.insertBefore(connector,group.firstChild);
-      var foreign=svgElement("foreignObject",{x:to.x-75,y:labelY,width:150,height:58});
-      var label=document.createElementNS(xhtmlNS,url?"a":"div");
-      label.setAttribute("class","partner-label");
+      var label=svgElement(url?"a":"g",{"class":"partner-card"});
       label.style.setProperty("--label-color",labelColor);
       if(url){
         label.setAttribute("href",url);
@@ -227,9 +240,22 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
         label.setAttribute("rel","noopener noreferrer");
         label.setAttribute("aria-label",name+"のウェブサイトを開く");
       }
-      label.textContent=name;
-      foreign.appendChild(label);
-      group.appendChild(foreign);
+      label.appendChild(svgElement("rect",{x:to.x-75,y:labelY,width:150,height:58,rx:12,ry:12,"class":"partner-card-bg"}));
+      var text=svgElement("text",{x:to.x,"class":"partner-card-text"});
+      var lines=partnerLabelLines(name);
+      var firstY=labelY+29-(lines.length-1)*7.5;
+      lines.forEach(function(line,lineIndex){
+        var tspan=svgElement("tspan",{x:to.x,y:firstY+lineIndex*15});
+        tspan.textContent=line;
+        text.appendChild(tspan);
+      });
+      label.appendChild(text);
+      if(url){
+        var arrow=svgElement("text",{x:to.x+66,y:labelY+10,"class":"partner-card-arrow"});
+        arrow.textContent="↗";
+        label.appendChild(arrow);
+      }
+      group.appendChild(label);
     }
     markerLayer.appendChild(group);
   }
