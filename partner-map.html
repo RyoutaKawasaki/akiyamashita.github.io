@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>1km PARTNER LIVE MAP｜Make a Move, World is Yours.</title>
+<meta name="description" content="ホノルルマラソン42.195kmを応援でつなぐ、1km PARTNERの現在地を紹介するライブマップです。">
+<meta property="og:title" content="1km PARTNER LIVE MAP">
+<meta property="og:description" content="42.195kmを、42組の応援でつなぐ。現在の1km PARTNERをご覧いただけます。">
+<meta property="og:image" content="og-image.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1E3557;--sub:#51637D;--sky:#1FA5DE;--sun:#FFB92E;--coral:#FF6B8B;--mint:#2FC9A0;--paper:#F3FAFF;--line:#CFE4F2;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.7;background:linear-gradient(180deg,#BDEAFF 0,#F3FAFF 36%,#FFF9E8 100%);min-height:100vh}
+a{color:inherit}
+.topbar{position:sticky;top:0;z-index:10;padding:max(10px,env(safe-area-inset-top)) 18px 10px;background:rgba(243,250,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(30,53,87,.09)}
+.topbar-inner{max-width:1120px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14px;font-weight:900}.back:before{content:"←"}
+.updated{font-size:12px;color:var(--sub);font-weight:700;white-space:nowrap}
+main{width:min(1120px,calc(100% - 36px));margin:auto;padding:clamp(50px,8vw,90px) 0 80px}
+.hero{text-align:center;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:7px 16px;border-radius:999px;background:var(--ink);color:#fff;font-size:12px;font-weight:900;letter-spacing:.12em}.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:#70F0C9;box-shadow:0 0 0 5px rgba(112,240,201,.18);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(.7);opacity:.65}}
+h1{margin:0;font-size:clamp(38px,7.5vw,82px);line-height:1.05;letter-spacing:-.04em}h1 span{color:var(--sky)}.sp-break{display:none}
+.lead{max-width:660px;margin:24px auto 0;font-weight:700;font-size:clamp(16px,2.3vw,20px)}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;margin:38px auto 22px}
+.summary div{padding:18px 12px;border:2px solid rgba(30,53,87,.08);border-radius:20px;background:rgba(255,255,255,.82);box-shadow:0 14px 28px -22px rgba(30,53,87,.5)}
+.summary small{display:block;color:var(--sub);font-size:12px;font-weight:700}.summary strong{display:block;font-size:clamp(23px,4vw,38px);line-height:1.15;font-weight:900}.summary .joined strong{color:var(--sky)}.summary .open strong{color:var(--coral)}
+.progress{height:14px;max-width:760px;margin:0 auto 50px;border:2px solid rgba(30,53,87,.1);border-radius:99px;background:#fff;overflow:hidden}.progress span{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--sky),var(--mint),var(--sun),var(--coral));transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.map-section{position:relative;margin-inline:calc(50% - 50vw);padding:0 max(18px,calc((100vw - 1120px)/2));overflow:hidden}
+.map-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:18px}.map-head h2{margin:0;font-size:clamp(27px,4vw,44px);line-height:1.12}.map-head h2 span{display:block;color:var(--sky);font-size:.42em;letter-spacing:.12em;margin-bottom:7px}.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--sub);font-size:12px;font-weight:700}.legend span{display:inline-flex;align-items:center;gap:6px}.legend i{width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid #9CBBC9}.legend .on i{border:0;background:linear-gradient(135deg,var(--sky),var(--mint),var(--sun),var(--coral))}
+.map-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 10px;color:var(--sub);font-size:13px;font-weight:800}.swipe-hint{display:inline-flex;align-items:center;gap:9px}.swipe-hint:before{content:"↔";display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--sky);font-size:17px}.map-nav{display:flex;gap:7px}.map-nav button{display:grid;place-items:center;width:40px;height:40px;border:0;border-radius:50%;background:var(--ink);color:#fff;font:900 18px/1 inherit;cursor:pointer;transition:transform .2s,background .2s}.map-nav button:hover{transform:translateY(-2px);background:var(--sky)}
+.map-frame{position:relative;border:2px solid rgba(30,53,87,.14);border-radius:30px;background:#9BDDF0;box-shadow:0 26px 60px -34px rgba(30,53,87,.58);overflow:hidden}.map-frame:before,.map-frame:after{content:"";position:absolute;z-index:3;top:0;bottom:0;width:42px;pointer-events:none}.map-frame:before{left:0;background:linear-gradient(90deg,rgba(22,53,86,.2),transparent)}.map-frame:after{right:0;background:linear-gradient(270deg,rgba(22,53,86,.2),transparent)}
+.map-scroll{position:relative;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior-inline:contain;scrollbar-color:var(--sun) rgba(255,255,255,.55);scrollbar-width:thin}.map-scroll::-webkit-scrollbar{height:11px}.map-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.58)}.map-scroll::-webkit-scrollbar-thumb{border:3px solid rgba(255,255,255,.75);border-radius:20px;background:var(--sun)}
+.map-stage{width:3600px;height:720px}.course-map{display:block;width:100%;height:100%;font-family:"Zen Kaku Gothic New","Yu Gothic",sans-serif}.map-label{fill:#1E3557;font-weight:900;letter-spacing:.1em}.map-label.light{fill:#fff}.map-sub-label{fill:#4C6A77;font-size:18px;font-weight:700}.route-shadow{fill:none;stroke:rgba(18,75,101,.18);stroke-width:33;stroke-linecap:round;stroke-linejoin:round}.route-bed{fill:none;stroke:#fff;stroke-width:26;stroke-linecap:round;stroke-linejoin:round}.route-segment{fill:none;stroke:#B8CDD3;stroke-width:14;stroke-linecap:round;stroke-dasharray:7 10;transition:stroke .4s}.route-segment.filled{stroke:var(--segment-color);stroke-dasharray:none;filter:url(#route-glow)}
+.route-marker .halo{fill:none;stroke:rgba(255,255,255,.6);stroke-width:10}.route-marker .dot{fill:#fff;stroke:#8DAEBB;stroke-width:5}.route-marker .number{fill:#4C6975;font-size:14px;font-weight:900;text-anchor:middle;dominant-baseline:central}.route-marker.filled .dot{fill:var(--marker-color);stroke:#fff;stroke-width:5;filter:url(#marker-shadow)}.route-marker.filled .number{fill:#fff}.partner-connector{stroke:#1E3557;stroke-width:3;stroke-dasharray:5 5}.partner-label{position:relative;height:100%;display:flex;align-items:center;justify-content:center;padding:3px 5px;border:2px solid #fff;border-radius:12px;background:#1E3557;color:#fff;text-align:center;text-decoration:none;white-space:pre-line;font-size:13px;font-weight:900;line-height:1.18;box-shadow:0 9px 18px rgba(30,53,87,.24);overflow-wrap:anywhere;transition:transform .2s,background .2s}.partner-label[href]{cursor:pointer}.partner-label[href]:hover{transform:translateY(-2px);background:#294A76}.partner-label[href]:after{content:"↗";position:absolute;right:5px;top:3px;font-size:9px}.course-spot{pointer-events:none}.course-spot text{fill:#1E3557;font-size:13px;font-weight:900;text-anchor:middle;paint-order:stroke;stroke:rgba(255,255,255,.94);stroke-width:5px;stroke-linejoin:round}.course-spot .spot-km{fill:#FF557E;font-size:11px;letter-spacing:.05em}.start-flag,.goal-flag{filter:url(#marker-shadow)}
+.message{max-width:720px;margin:38px auto 0;text-align:center}.message h2{margin:0 0 12px;font-size:clamp(25px,4vw,38px)}.message p{margin:0;color:var(--sub)}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:900}.button.primary{background:linear-gradient(90deg,var(--sky),var(--mint));color:#fff;box-shadow:0 14px 28px -15px rgba(31,165,222,.75)}.button.secondary{background:#fff;border:2px solid var(--ink)}
+.share-note{margin:40px auto 0;padding:22px;border-radius:22px;background:rgba(255,255,255,.74);border:1px solid var(--line);text-align:center;max-width:760px}.share-note strong{display:block;margin-bottom:5px}.share-note p{margin:0;color:var(--sub);font-size:14px}
+footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center;color:var(--sub);font-size:12px;font-weight:700}
+@media(max-width:900px){.map-head{align-items:flex-start;flex-direction:column}.map-stage{width:3360px;height:680px}}
+@media(max-width:520px){main{width:min(100% - 24px,1120px);padding-top:36px}.topbar{padding-inline:12px}.back{font-size:13px}.updated{font-size:10px}h1{font-size:clamp(38px,12vw,52px)}.sp-break{display:inline}.lead{font-size:15px}.summary{gap:7px;margin-top:28px}.summary div{padding:14px 6px;border-radius:15px}.summary small{font-size:10px}.summary strong{font-size:23px}.progress{margin-bottom:30px}.map-section{padding-inline:12px}.map-head{gap:13px;margin-bottom:14px}.map-head h2{font-size:29px}.legend{gap:10px}.map-toolbar{font-size:12px}.map-nav button{width:38px;height:38px}.map-frame{border-radius:22px}.map-stage{width:3150px;height:630px}.actions{display:grid}.button{width:100%}}
+@media(prefers-reduced-motion:reduce){.eyebrow:before{animation:none}.progress span{transition:none}.map-scroll{scroll-behavior:auto}}
+@media print{.topbar,.actions,.share-note,.map-toolbar{display:none}body{background:#fff}main{width:100%;padding:20px}.map-section{margin:0;padding:0}.map-frame{box-shadow:none}.map-stage{width:100%;height:auto;aspect-ratio:5/1}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><a class="back" href="index.html#partner">プロジェクトページへ戻る</a><span class="updated">最終更新：<b id="updated">—</b></span></div></header>
+<main>
+<section class="hero">
+<p class="eyebrow">LIVE PARTNER MAP</p>
+<h1>42.195kmを、<br><span>42組の応援</span>で<span class="sp-break"><br></span>つなぐ。</h1>
+<p class="lead">1kmごとに、応援してくれる人や企業の名前を刻みます。空欄だったコースが、仲間が増えるたびに少しずつ完成していくライブマップです。</p>
+<div class="summary" aria-label="参加状況">
+<div class="joined"><small>決定区間</small><strong><span id="joined">0</span> km</strong></div>
+<div class="open"><small>募集中</small><strong><span id="open">42</span> km</strong></div>
+<div><small>完成率</small><strong><span id="percent">0</span>%</strong></div>
+</div>
+<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="42" aria-valuenow="0" aria-label="1km PARTNERの決定状況"><span id="progress"></span></div>
+</section>
+
+<section class="map-section" aria-labelledby="map-title">
+<div class="map-head"><h2 id="map-title"><span>THE ROAD TO HONOLULU</span>1km PARTNER ROUTE MAP</h2><div class="legend"><span class="on"><i></i>PARTNER決定</span><span><i></i>募集中</span></div></div>
+<div class="map-toolbar"><span class="swipe-hint">横にスワイプして42kmを見る</span><div class="map-nav" aria-label="地図の横スクロール"><button type="button" id="map-prev" aria-label="前へ">←</button><button type="button" id="map-next" aria-label="次へ">→</button></div></div>
+<div class="map-frame">
+<div class="map-scroll" id="map-scroll" tabindex="0" aria-label="42kmの1km PARTNERルートマップ。横にスクロールできます">
+<div class="map-stage">
+<svg class="course-map" id="course-map" viewBox="0 0 3600 720" role="img" aria-labelledby="route-map-title route-map-desc">
+<title id="route-map-title">1km PARTNER ROUTE MAP</title>
+<desc id="route-map-desc">スタートから42kmまで、パートナーが決まった区間が色と名前で埋まっていく横長のコースマップです。</desc>
+<defs>
+<filter id="route-glow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#1E3557" flood-opacity=".22"/></filter>
+<filter id="marker-shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#17395D" flood-opacity=".28"/></filter>
+</defs>
+<image href="partner-map-bg.jpg?v=20261011-3" x="0" y="0" width="3600" height="720" preserveAspectRatio="none"/>
+<rect width="3600" height="720" fill="#16395D" opacity=".08"/>
+<g id="route-base-layer"></g>
+<g id="route-segment-layer"></g>
+<g id="route-spot-layer"></g>
+<g id="route-marker-layer"></g>
+</svg>
+</div>
+</div>
+</div>
+</section>
+
+<section class="message">
+<h2>あなたの名前が、<br>ホノルルまで一緒に走ります。</h2>
+<p>担当する1kmは、苦しいときに背中を押してくれる応援のバトンです。</p>
+<div class="actions"><a class="button primary" href="index.html#plans">参加方法を確認する</a><a class="button secondary" href="index.html#partner">企画の説明へ戻る</a></div>
+</section>
+
+<aside class="share-note"><strong>マップは随時更新します</strong><p>現在の画面をスクリーンショットして、Instagramストーリーでも進捗をお知らせします。</p></aside>
+</main>
+<footer>Make a Move, World is Yours.｜人生は可能性に溢れている</footer>
+
+<script src="partner-data.js"></script>
+<script>
+(function(){
+  var data=window.PARTNER_MAP_DATA||{updated:"—",partners:{}};
+  var partners=data.partners||{};
+  var colors=["#1FA5DE","#2FC9A0","#FFB92E","#FF9A5C","#FF6B8B","#8E6BFF"];
+  var svgNS="http://www.w3.org/2000/svg";
+  var xhtmlNS="http://www.w3.org/1999/xhtml";
+  var baseLayer=document.getElementById("route-base-layer");
+  var segmentLayer=document.getElementById("route-segment-layer");
+  var spotLayer=document.getElementById("route-spot-layer");
+  var markerLayer=document.getElementById("route-marker-layer");
+  function svgElement(tag,attributes){
+    var element=document.createElementNS(svgNS,tag);
+    Object.keys(attributes||{}).forEach(function(key){element.setAttribute(key,attributes[key]);});
+    return element;
+  }
+  function point(km){
+    var coast=[
+      {km:0,y:220},{km:5,y:284},{km:10,y:340},{km:15,y:388},
+      {km:20,y:420},{km:25,y:426},{km:30,y:404},{km:35,y:354},
+      {km:38,y:304},{km:42,y:236}
+    ];
+    var before=coast[0],after=coast[coast.length-1];
+    for(var c=1;c<coast.length;c++){
+      if(km<=coast[c].km){before=coast[c-1];after=coast[c];break;}
+    }
+    var ratio=(km-before.km)/(after.km-before.km||1);
+    var x=220+(3160/42)*km;
+    var y=before.y+(after.y-before.y)*ratio+Math.sin(km*.78)*7;
+    return{x:x,y:y};
+  }
+  var points=[];
+  for(var index=0;index<=42;index++) points.push(point(index));
+  var routePath=points.map(function(p,i){return(i?"L":"M")+p.x.toFixed(1)+" "+p.y.toFixed(1);}).join(" ");
+  baseLayer.appendChild(svgElement("path",{d:routePath,"class":"route-shadow"}));
+  baseLayer.appendChild(svgElement("path",{d:routePath,"class":"route-bed"}));
+
+  var start=points[0];
+  var startGroup=svgElement("g",{"class":"start-flag"});
+  startGroup.appendChild(svgElement("line",{x1:start.x-44,y1:start.y,x2:start.x-14,y2:start.y,stroke:"#E53935","stroke-width":"8","stroke-linecap":"round"}));
+  startGroup.appendChild(svgElement("circle",{cx:start.x-92,cy:start.y,r:48,fill:"#E53935"}));
+  var startText=svgElement("text",{x:start.x-92,y:start.y+7,"class":"map-label light","font-size":"18","text-anchor":"middle"});
+  startText.textContent="START";
+  startGroup.appendChild(startText);
+  markerLayer.appendChild(startGroup);
+
+  var courseSpots=[
+    {km:5,label:"アラモアナ公園"},
+    {km:10,label:"カピオラニ公園"},
+    {km:12,label:"ダイヤモンドヘッドの上り"},
+    {km:18,label:"ハイウェイ"},
+    {km:26,label:"ハワイカイ"},
+    {km:31,label:"マウナルア・ベイ"},
+    {km:38,label:"カハラ"},
+    {km:40,label:"カピオラニ公園"}
+  ];
+  courseSpots.forEach(function(spot){
+    var p=points[spot.km];
+    var group=svgElement("g",{"class":"course-spot"});
+    var kmText=svgElement("text",{x:p.x,y:p.y+45,"class":"spot-km"});
+    kmText.textContent=spot.km+"km";
+    var placeText=svgElement("text",{x:p.x,y:p.y+64});
+    placeText.textContent=spot.label;
+    group.appendChild(kmText);
+    group.appendChild(placeText);
+    spotLayer.appendChild(group);
+  });
+
+  var joined=0;
+  for(var km=1;km<=42;km++){
+    var entry=partners[km];
+    var name="";
+    var url="";
+    if(entry&&typeof entry==="object"){
+      name=String(entry.name||"").trim();
+      url=String(entry.url||"").trim();
+    }else{
+      name=String(entry||"").trim();
+    }
+    if(url&&!/^(https?:\/\/|\.\.?\/|#)/i.test(url)) url="";
+    if(name) joined++;
+    var color=colors[(km-1)%colors.length];
+    var from=points[km-1];
+    var to=points[km];
+    var segment=svgElement("line",{x1:from.x,y1:from.y,x2:to.x,y2:to.y,"class":"route-segment"+(name?" filled":"")});
+    if(name) segment.style.setProperty("--segment-color",color);
+    segmentLayer.appendChild(segment);
+
+    var group=svgElement("g",{"class":"route-marker"+(name?" filled":""),"aria-label":km+"km "+(name?name:"募集中")});
+    group.style.setProperty("--marker-color",color);
+    if(name) group.appendChild(svgElement("circle",{cx:to.x,cy:to.y,r:27,"class":"halo"}));
+    group.appendChild(svgElement("circle",{cx:to.x,cy:to.y,r:21,"class":"dot"}));
+    var number=svgElement("text",{x:to.x,y:to.y+1,"class":"number"});
+    number.textContent=km;
+    group.appendChild(number);
+
+    if(name){
+      var labelY=to.y-(km%2===1?142:76);
+      var connector=svgElement("line",{x1:to.x,y1:to.y-26,x2:to.x,y2:labelY+58,"class":"partner-connector"});
+      group.insertBefore(connector,group.firstChild);
+      var foreign=svgElement("foreignObject",{x:to.x-75,y:labelY,width:150,height:58});
+      var label=document.createElementNS(xhtmlNS,url?"a":"div");
+      label.setAttribute("class","partner-label");
+      if(url){
+        label.setAttribute("href",url);
+        label.setAttribute("target","_blank");
+        label.setAttribute("rel","noopener noreferrer");
+        label.setAttribute("aria-label",name+"のウェブサイトを開く");
+      }
+      label.textContent=name;
+      foreign.appendChild(label);
+      group.appendChild(foreign);
+    }
+    markerLayer.appendChild(group);
+  }
+
+  var goal=points[42];
+  var goalGroup=svgElement("g",{"class":"goal-flag"});
+  goalGroup.appendChild(svgElement("rect",{x:goal.x-72,y:goal.y+44,width:144,height:54,rx:18,fill:"#FF6B8B"}));
+  var goalText=svgElement("text",{x:goal.x,y:goal.y+78,"class":"map-label light","font-size":"20","text-anchor":"middle"});
+  goalText.textContent="GOAL 42.195";
+  goalGroup.appendChild(goalText);
+  markerLayer.appendChild(goalGroup);
+
+  var percent=Math.round(joined/42*100);
+  document.getElementById("joined").textContent=joined;
+  document.getElementById("open").textContent=42-joined;
+  document.getElementById("percent").textContent=percent;
+  document.getElementById("updated").textContent=data.updated||"—";
+  var bar=document.getElementById("progress");
+  bar.style.width=percent+"%";
+  bar.parentElement.setAttribute("aria-valuenow",String(joined));
+  var scroller=document.getElementById("map-scroll");
+  document.getElementById("map-prev").addEventListener("click",function(){scroller.scrollBy({left:-Math.min(760,scroller.clientWidth*.8),behavior:"smooth"});});
+  document.getElementById("map-next").addEventListener("click",function(){scroller.scrollBy({left:Math.min(760,scroller.clientWidth*.8),behavior:"smooth"});});
+})();
+</script>
+</body>
+</html>
