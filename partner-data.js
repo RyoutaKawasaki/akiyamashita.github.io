@@ -11,7 +11,7 @@
   空欄（""）の区間は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
-  updated: "2026.10.12",
+  updated: "2026.10.13",
   partners: {
     1: "",
     2: "",
@@ -50,7 +50,7 @@ window.PARTNER_MAP_DATA = {
     35: "",
     36: "",
     37: "",
-    38: "",
+    38: { name: "宮嵜 健\n株式会社makeact", url: "https://www.instagram.com/shake_1220?psln=aDZpNng2Mzc4N3Mx" },
     39: "",
     40: "",
     41: "",
