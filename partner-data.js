@@ -11,7 +11,7 @@
   空欄（""）の区間は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
-  updated: "2026.10.13",
+  updated: "2026.10.14",
   partners: {
     1: "",
     2: "",
@@ -31,7 +31,7 @@ window.PARTNER_MAP_DATA = {
     16: "",
     17: "",
     18: "",
-    19: "",
+    19: { name: "広瀬 空\n株式会社GIFT", url: "https://gift-gk.co.jp/" },
     20: "",
     21: "",
     22: "",
@@ -54,6 +54,6 @@ window.PARTNER_MAP_DATA = {
     39: "",
     40: "",
     41: "",
-    42: ""
+    42: { name: "佐藤幸憲", url: "https://www.instagram.com/yukinosatori0730/" }
   }
 };
