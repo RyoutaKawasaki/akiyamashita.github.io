@@ -11,13 +11,13 @@
   空欄（""）の区間は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
-  updated: "2026.10.14",
+  updated: "2026.10.16",
   partners: {
     1: "",
     2: "",
     3: "",
     4: "",
-    5: "",
+    5: { name: "株式会社Moa", url: "https://moa16.co.jp/recruit/" },
     6: "",
     7: "",
     8: "",
@@ -53,7 +53,7 @@ window.PARTNER_MAP_DATA = {
     38: { name: "宮嵜 健\n株式会社makeact", url: "https://www.instagram.com/shake_1220?psln=aDZpNng2Mzc4N3Mx" },
     39: "",
     40: "",
-    41: "",
+    41: { name: "佐藤杏奈", url: "https://moa16.co.jp/recruit/" },
     42: { name: "佐藤幸憲", url: "https://www.instagram.com/yukinosatori0730/" }
   }
 };
