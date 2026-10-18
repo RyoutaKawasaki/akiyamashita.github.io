@@ -11,11 +11,11 @@
   空欄（""）の区間は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
-  updated: "2026.10.16",
+  updated: "2026.10.18",
   partners: {
-    1: "",
-    2: "",
-    3: "",
+    1: { name: "山下アキ\n株式会社さぁ行こう", url: "https://www.instagram.com/aki.yamashita_saaicou?xtok=d3diN21sNWh6bDV6&utm_source=qr" },
+    2: { name: "山下アキ\n【アッ氣学】", url: "https://www.aki-yamashita.com/" },
+    3: { name: "山下アキ\n経営の次の一手を読む", url: "https://youtu.be/yf1KnHLrPdk?si=2rSc2-aensWpWh89" },
     4: "",
     5: { name: "株式会社Moa", url: "https://moa16.co.jp/recruit/" },
     6: "",
