@@ -14,8 +14,8 @@ window.PARTNER_MAP_DATA = {
   updated: "2026.10.18",
   partners: {
     1: { name: "山下アキ\n株式会社さぁ行こう\nInstagram", url: "https://www.instagram.com/aki.yamashita_saaicou?xtok=d3diN21sNWh6bDV6&utm_source=qr" },
-    2: { name: "山下アキ\n株式会社さぁ行こう\nアッ氣学", url: "https://www.aki-yamashita.com/" },
-    3: { name: "山下アキ\n株式会社さぁ行こう\n経営の次の一手", url: "https://youtu.be/yf1KnHLrPdk?si=2rSc2-aensWpWh89" },
+    2: { name: "山下アキ\n株式会社さぁ行こう\nアッ氣学", url: "https://youtu.be/yf1KnHLrPdk?si=2rSc2-aensWpWh89" },
+    3: { name: "山下アキ\n株式会社さぁ行こう\n経営の次の一手を読む", url: "https://www.aki-yamashita.com/" },
     4: "",
     5: { name: "株式会社Moa", url: "https://moa16.co.jp/recruit/" },
     6: "",
