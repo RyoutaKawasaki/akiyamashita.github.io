@@ -41,6 +41,7 @@ h1{margin:0;font-size:clamp(38px,7.5vw,82px);line-height:1.05;letter-spacing:-.0
 .map-scroll{position:relative;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior-inline:contain;scrollbar-color:var(--sun) rgba(255,255,255,.55);scrollbar-width:thin}.map-scroll::-webkit-scrollbar{height:11px}.map-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.58)}.map-scroll::-webkit-scrollbar-thumb{border:3px solid rgba(255,255,255,.75);border-radius:20px;background:var(--sun)}
 .map-stage{width:3600px;height:720px}.course-map{display:block;width:100%;height:100%;font-family:"Zen Kaku Gothic New","Yu Gothic",sans-serif}.map-label{fill:#1E3557;font-weight:900;letter-spacing:.1em}.map-label.light{fill:#fff}.map-sub-label{fill:#4C6A77;font-size:18px;font-weight:700}.route-shadow{fill:none;stroke:rgba(18,75,101,.18);stroke-width:33;stroke-linecap:round;stroke-linejoin:round}.route-bed{fill:none;stroke:#fff;stroke-width:26;stroke-linecap:round;stroke-linejoin:round}.route-segment{fill:none;stroke:#B8CDD3;stroke-width:14;stroke-linecap:round;stroke-dasharray:7 10;transition:stroke .4s}.route-segment.filled{stroke:var(--segment-color);stroke-dasharray:none;filter:url(#route-glow)}
 .route-marker .halo{fill:none;stroke:rgba(255,255,255,.6);stroke-width:10}.route-marker .dot{fill:#fff;stroke:#8DAEBB;stroke-width:5}.route-marker .number{fill:#4C6975;font-size:14px;font-weight:900;text-anchor:middle;dominant-baseline:central}.route-marker.filled .dot{fill:var(--marker-color);stroke:#fff;stroke-width:5;filter:url(#marker-shadow)}.route-marker.filled .number{fill:#fff}.partner-connector{stroke:var(--label-color);stroke-width:3;stroke-dasharray:5 5}.partner-card{cursor:default}.partner-card[href]{cursor:pointer}.partner-card-bg{fill:var(--label-color);stroke:#fff;stroke-width:2;filter:url(#marker-shadow);transition:fill .2s}.partner-card[href]:hover .partner-card-bg{fill:#142A49}.partner-card-text{fill:#fff;font-size:12px;font-weight:500;text-anchor:middle;dominant-baseline:central;pointer-events:none}.partner-card-arrow{fill:#fff;font-size:9px;text-anchor:middle;dominant-baseline:central;pointer-events:none}.course-spot{pointer-events:none}.course-spot text{fill:#1E3557;font-size:13px;font-weight:900;text-anchor:middle;paint-order:stroke;stroke:rgba(255,255,255,.94);stroke-width:5px;stroke-linejoin:round}.course-spot .spot-km{fill:#FF557E;font-size:11px;letter-spacing:.05em}.start-flag,.goal-flag{filter:url(#marker-shadow)}.start-burst{stroke:#fff;stroke-width:3;stroke-linejoin:round;transform-box:fill-box;transform-origin:center;animation:start-spin 12s linear infinite}
+.sponsor-label{filter:url(#marker-shadow)}.sponsor-ribbon{fill:var(--island-color);stroke:#fff;stroke-width:2;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(255,255,255,.95)) drop-shadow(0 0 10px var(--island-color))}.sponsor-ribbon-text{fill:#fff;font-size:14px;font-weight:900;letter-spacing:.04em;text-anchor:middle;dominant-baseline:central}.sponsor-name-card{fill:#1E3557;stroke:#fff;stroke-width:3}.sponsor-name{fill:#fff;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central}.sponsor-open{fill:#fff;font-size:14px;font-weight:700;text-anchor:middle;dominant-baseline:central;opacity:.86}.sponsor-link:hover .sponsor-name{text-decoration:underline}.sponsor-arrow{fill:#fff;font-size:10px;font-weight:900;text-anchor:middle;dominant-baseline:central}
 @keyframes start-spin{to{transform:rotate(360deg)}}
 .message{max-width:720px;margin:38px auto 0;text-align:center}.message h2{margin:0 0 12px;font-size:clamp(25px,4vw,38px)}.message p{margin:0;color:var(--sub)}
 .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:900}.button.primary{background:linear-gradient(90deg,var(--sky),var(--mint));color:#fff;box-shadow:0 14px 28px -15px rgba(31,165,222,.75)}.button.secondary{background:#fff;border:2px solid var(--ink)}
@@ -81,8 +82,9 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
 <filter id="marker-shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#17395D" flood-opacity=".28"/></filter>
 <linearGradient id="start-gradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ffbb1e"/><stop offset="100%" stop-color="#ff9158"/></linearGradient>
 </defs>
-<image href="partner-map-bg.jpg?v=20261018-1" x="0" y="0" width="3600" height="720" preserveAspectRatio="none"/>
+<image href="partner-map-bg.jpg?v=20261019-3" x="0" y="0" width="3600" height="720" preserveAspectRatio="none"/>
 <rect width="3600" height="720" fill="#16395D" opacity=".08"/>
+<g id="sponsor-island-layer"></g>
 <g id="route-base-layer"></g>
 <g id="route-segment-layer"></g>
 <g id="route-spot-layer"></g>
@@ -103,11 +105,12 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
 </main>
 <footer>Make a Move, World is Yours.｜人生は可能性に溢れている</footer>
 
-<script src="partner-data.js?v=20261018-4"></script>
+<script src="partner-data.js?v=20261019-3"></script>
 <script>
 (function(){
   var data=window.PARTNER_MAP_DATA||{updated:"—",partners:{}};
   var partners=data.partners||{};
+  var sponsorIslands=data.sponsorIslands||{};
   var colors=["#1FA5DE","#2FC9A0","#FFB92E","#FF9A5C","#FF6B8B","#8E6BFF"];
   var labelColors=["#1E3557"];
   var svgNS="http://www.w3.org/2000/svg";
@@ -115,6 +118,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
   var segmentLayer=document.getElementById("route-segment-layer");
   var spotLayer=document.getElementById("route-spot-layer");
   var markerLayer=document.getElementById("route-marker-layer");
+  var islandLayer=document.getElementById("sponsor-island-layer");
   function svgElement(tag,attributes){
     var element=document.createElementNS(svgNS,tag);
     Object.keys(attributes||{}).forEach(function(key){element.setAttribute(key,attributes[key]);});
@@ -162,6 +166,68 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
     }
     return lines.length?lines:[""];
   }
+  function sponsorEntries(value){
+    var entries=Array.isArray(value)?value:(value?[value]:[]);
+    return entries.map(function(entry){
+      if(typeof entry==="string") return{name:entry.trim(),url:""};
+      var name=String(entry&&entry.name||"").trim();
+      var url=String(entry&&entry.url||"").trim();
+      if(url&&!/^(https?:\/\/|\.\.?\/|#)/i.test(url)) url="";
+      return{name:name,url:url};
+    }).filter(function(entry){return entry.name;});
+  }
+  function shortSponsorName(value){
+    var text=String(value).replace(/\s*\n\s*/g," ").trim();
+    return text.length>20?text.slice(0,19)+"…":text;
+  }
+  function addSponsorLabel(plan){
+    var entries=sponsorEntries(sponsorIslands[plan.id]);
+    var group=svgElement("g",{"class":"sponsor-label","aria-label":plan.title+" "+plan.amount+" "+(entries.length?entries.map(function(entry){return entry.name;}).join("、"):"募集中")});
+    group.style.setProperty("--island-color",plan.color);
+
+    var ribbonLeft=plan.x-plan.ribbonWidth/2;
+    var ribbonRight=plan.x+plan.ribbonWidth/2;
+    var ribbonBottom=plan.ribbonY+38;
+    group.appendChild(svgElement("path",{d:"M "+ribbonLeft+" "+plan.ribbonY+" L "+ribbonRight+" "+plan.ribbonY+" L "+(ribbonRight-18)+" "+(plan.ribbonY+19)+" L "+ribbonRight+" "+ribbonBottom+" L "+ribbonLeft+" "+ribbonBottom+" L "+(ribbonLeft+18)+" "+(plan.ribbonY+19)+" Z","class":"sponsor-ribbon"}));
+    var ribbonText=svgElement("text",{x:plan.x,y:plan.ribbonY+20,"class":"sponsor-ribbon-text"});
+    ribbonText.textContent=plan.title+"　"+plan.amount;
+    group.appendChild(ribbonText);
+
+    var shown=entries.slice(0,2);
+    var cardHeight=shown.length>1?72:56;
+    group.appendChild(svgElement("rect",{x:plan.x-plan.cardWidth/2,y:plan.nameY,width:plan.cardWidth,height:cardHeight,rx:14,ry:14,"class":"sponsor-name-card"}));
+    if(!shown.length){
+      var open=svgElement("text",{x:plan.x,y:plan.nameY+cardHeight/2,"class":"sponsor-open"});
+      open.textContent="募集中";
+      group.appendChild(open);
+    }else{
+      var firstY=plan.nameY+cardHeight/2-(shown.length-1)*10;
+      shown.forEach(function(entry,index){
+        var holder=svgElement(entry.url?"a":"g",{"class":"sponsor-link"});
+        if(entry.url){
+          holder.setAttribute("href",entry.url);
+          holder.setAttribute("target","_blank");
+          holder.setAttribute("rel","noopener noreferrer");
+          holder.setAttribute("aria-label",entry.name+"のウェブサイトを開く");
+        }
+        var name=svgElement("text",{x:plan.x,y:firstY+index*20,"class":"sponsor-name"});
+        name.textContent=shortSponsorName(entry.name);
+        holder.appendChild(name);
+        if(entry.url){
+          var arrow=svgElement("text",{x:plan.x+plan.cardWidth/2-17,y:firstY+index*20,"class":"sponsor-arrow"});
+          arrow.textContent="↗";
+          holder.appendChild(arrow);
+        }
+        group.appendChild(holder);
+      });
+    }
+    islandLayer.appendChild(group);
+  }
+  [
+    {id:"challenge",x:580,ribbonY:575,nameY:626,ribbonWidth:300,cardWidth:250,title:"CHALLENGE PARTNER",amount:"30,000円",color:"#FF8A3D"},
+    {id:"official",x:1520,ribbonY:575,nameY:626,ribbonWidth:320,cardWidth:280,title:"OFFICIAL PARTNER",amount:"50,000円",color:"#FF6389"},
+    {id:"main",x:2970,ribbonY:565,nameY:616,ribbonWidth:340,cardWidth:310,title:"MAIN PARTNER",amount:"100,000円",color:"#8A63F6"}
+  ].forEach(addSponsorLabel);
   var routePath=points.map(function(p,i){return(i?"L":"M")+p.x.toFixed(1)+" "+p.y.toFixed(1);}).join(" ");
   baseLayer.appendChild(svgElement("path",{d:routePath,"class":"route-shadow"}));
   baseLayer.appendChild(svgElement("path",{d:routePath,"class":"route-bed"}));

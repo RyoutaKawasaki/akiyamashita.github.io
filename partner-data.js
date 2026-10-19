@@ -9,9 +9,20 @@
   3. このファイルを上書きアップロードします。
 
   空欄（""）の区間は「募集中」と表示されます。
+
+  PARTNER ISLAND 更新方法：
+  1. sponsorIslands内の該当コースへ掲載名とリンクを追加します。
+     例：challenge: [{ name: "株式会社サンプル", url: "https://example.com/" }],
+  2. 複数名の場合は { name: "...", url: "..." } をカンマ区切りで追加します。
+  3. 空の配列（[]）は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
   updated: "2026.10.19",
+  sponsorIslands: {
+    challenge: [], // 30,000円 CHALLENGE PARTNER
+    official: [],  // 50,000円 OFFICIAL PARTNER
+    main: []       // 100,000円 MAIN PARTNER（限定1〜2社）
+  },
   partners: {
     1: { name: "山下アキ\n株式会社さぁ行こう\nInstagram", url: "https://www.instagram.com/aki.yamashita_saaicou?xtok=d3diN21sNWh6bDV6&utm_source=qr" },
     2: { name: "山下アキ\n株式会社さぁ行こう\nアッ氣学", url: "https://youtu.be/yf1KnHLrPdk?si=2rSc2-aensWpWh89" },
