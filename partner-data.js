@@ -43,7 +43,7 @@ window.PARTNER_MAP_DATA = {
     28: "",
     29: "",
     30: "",
-    31: "",
+    31: { name: "滝本　海\nお魚イラストレーター\nＵＭＩ", url: "https://www.instagram.com/umi_loves_drawing" },
     32: "",
     33: "",
     34: "",
