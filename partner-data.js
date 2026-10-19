@@ -11,7 +11,7 @@
   空欄（""）の区間は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
-  updated: "2026.10.18",
+  updated: "2026.10.19",
   partners: {
     1: { name: "山下アキ\n株式会社さぁ行こう\nInstagram", url: "https://www.instagram.com/aki.yamashita_saaicou?xtok=d3diN21sNWh6bDV6&utm_source=qr" },
     2: { name: "山下アキ\n株式会社さぁ行こう\nアッ氣学", url: "https://youtu.be/yf1KnHLrPdk?si=2rSc2-aensWpWh89" },
@@ -53,7 +53,7 @@ window.PARTNER_MAP_DATA = {
     38: { name: "宮嵜 健\n株式会社makeact", url: "https://www.instagram.com/shake_1220?psln=aDZpNng2Mzc4N3Mx" },
     39: "",
     40: "",
-    41: { name: "佐藤杏奈", url: "https://moa16.co.jp/recruit/" },
+    41: { name: "佐藤杏奈", url: "https://www.instagram.com/moanna_0106?psln=MWhlZ29ubWNmbGJ3dA==" },
     42: { name: "佐藤幸憲", url: "https://www.instagram.com/yukinosatori0730/" }
   }
 };
