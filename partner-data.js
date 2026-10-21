@@ -17,11 +17,14 @@
   3. 空の配列（[]）は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
-  updated: "2026.10.19",
+  updated: "2026.10.21",
   sponsorIslands: {
     challenge: [], // 30,000円 CHALLENGE PARTNER
-    official: [],  // 50,000円 OFFICIAL PARTNER
-    main: []       // 100,000円 MAIN PARTNER（限定1〜2社）
+    official: [{ name: "米光マサヒコ", url: "https://www.instagram.com/yonemasa/" }],  // 50,000円 OFFICIAL PARTNER
+    main: [
+      { name: "佐藤幸憲", url: "https://www.instagram.com/yukinosatori0730/" },
+      { name: "佐藤杏奈", url: "https://www.instagram.com/moanna_0106?psln=MWhlZ29ubWNmbGJ3dA==" }
+    ]       // 100,000円 MAIN PARTNER（限定1〜2社）
   },
   partners: {
     1: { name: "山下アキ\n株式会社さぁ行こう\nInstagram", url: "https://www.instagram.com/aki.yamashita_saaicou?xtok=d3diN21sNWh6bDV6&utm_source=qr" },
@@ -63,7 +66,7 @@ window.PARTNER_MAP_DATA = {
     37: "",
     38: { name: "宮嵜 健\n株式会社makeact", url: "https://www.instagram.com/shake_1220?psln=aDZpNng2Mzc4N3Mx" },
     39: "",
-    40: "",
+    40: { name: "米光マサヒコ\nイラストレーター", url: "https://www.instagram.com/yonemasa/" },
     41: { name: "佐藤杏奈", url: "https://www.instagram.com/moanna_0106?psln=MWhlZ29ubWNmbGJ3dA==" },
     42: { name: "佐藤幸憲", url: "https://www.instagram.com/yukinosatori0730/" }
   }
