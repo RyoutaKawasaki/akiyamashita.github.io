@@ -108,7 +108,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
 </main>
 <footer>Make a Move, World is Yours.｜人生は可能性に溢れている</footer>
 
-<script src="partner-data.js?v=20261021-4"></script>
+<script src="partner-data.js?v=20261022-1"></script>
 <script>
 (function(){
   var data=window.PARTNER_MAP_DATA||{updated:"—",partners:{}};
@@ -128,7 +128,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
     return element;
   }
   function partnerColor(km){
-    if(km===40) return "#FF6B8B";
+    if(km===39||km===40) return "#FF6B8B";
     if(km===41||km===42) return "#8E6BFF";
     return standardPartnerColors[(km-1)%standardPartnerColors.length];
   }
@@ -202,7 +202,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
     group.appendChild(ribbonText);
 
     var shown=entries.slice(0,2);
-    var horizontal=plan.id==="main"&&shown.length>1;
+    var horizontal=(plan.id==="main"||plan.id==="official")&&shown.length>1;
     var cardHeight=horizontal?56:(shown.length>1?72:56);
     group.appendChild(svgElement("rect",{x:plan.x-plan.cardWidth/2,y:plan.nameY,width:plan.cardWidth,height:cardHeight,rx:14,ry:14,"class":"sponsor-name-card"}));
     if(!shown.length){
@@ -298,7 +298,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
     if(name) segment.style.setProperty("--segment-color",color);
     segmentLayer.appendChild(segment);
 
-    var featured=km===40||km===41||km===42;
+    var featured=km===39||km===40||km===41||km===42;
     var group=svgElement("g",{"class":"route-marker"+(name?" filled":"")+(featured?" featured":""),"aria-label":km+"km "+(name?name:"募集中")});
     group.style.setProperty("--marker-color",color);
     group.style.setProperty("--label-color",labelColor);
