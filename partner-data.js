@@ -17,7 +17,7 @@
   3. 空の配列（[]）は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
-  updated: "2026.10.29",
+  updated: "2026.11.03",
   sponsorIslands: {
     challenge: [], // 30,000円 CHALLENGE PARTNER
     official: [
@@ -45,7 +45,7 @@ window.PARTNER_MAP_DATA = {
     13: "",
     14: "",
     15: "",
-    16: "",
+    16: { name: "高師由紀\nクレオ歯科・矯正歯科", url: "https://creo-dental.com/" },
     17: "",
     18: "",
     19: { name: "広瀬 空\n株式会社GIFT", url: "https://gift-gk.co.jp/" },
