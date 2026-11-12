@@ -108,7 +108,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
 </main>
 <footer>Make a Move, World is Yours.｜人生は可能性に溢れている</footer>
 
-<script src="partner-data.js?v=20261104-1"></script>
+<script src="partner-data.js?v=20261112-1"></script>
 <script>
 (function(){
   var data=window.PARTNER_MAP_DATA||{updated:"—",partners:{}};
@@ -128,7 +128,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
     return element;
   }
   function partnerColor(km){
-    if(km===39||km===40) return "#FF6B8B";
+    if(km===21||km===39||km===40) return "#FF6B8B";
     if(km===41||km===42) return "#8E6BFF";
     return standardPartnerColors[(km-1)%standardPartnerColors.length];
   }
@@ -201,7 +201,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
     ribbonText.textContent=plan.title+"　"+plan.amount;
     group.appendChild(ribbonText);
 
-    var shown=entries.slice(0,2);
+    var shown=entries.slice(0,plan.maxEntries||2);
     var horizontal=(plan.id==="main"||plan.id==="official")&&shown.length>1;
     var cardHeight=horizontal?56:(shown.length>1?72:56);
     group.appendChild(svgElement("rect",{x:plan.x-plan.cardWidth/2,y:plan.nameY,width:plan.cardWidth,height:cardHeight,rx:14,ry:14,"class":"sponsor-name-card"}));
@@ -220,13 +220,13 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
           holder.setAttribute("aria-label",entry.name+"のウェブサイトを開く");
         }
         var displayName=shortSponsorName(entry.name);
-        var nameX=horizontal?plan.x+(index===0?-plan.cardWidth/4:plan.cardWidth/4):plan.x;
+        var nameX=horizontal?plan.x-plan.cardWidth/2+plan.cardWidth*(index+.5)/shown.length:plan.x;
         var nameY=horizontal?firstY:firstY+index*20;
         var name=svgElement("text",{x:nameX,y:nameY,"class":"sponsor-name"});
         name.textContent=displayName;
         holder.appendChild(name);
         if(entry.url){
-          var sectionRight=horizontal?(plan.x+(index===0?0:plan.cardWidth/2)):(plan.x+plan.cardWidth/2);
+          var sectionRight=horizontal?(plan.x-plan.cardWidth/2+plan.cardWidth*(index+1)/shown.length):(plan.x+plan.cardWidth/2);
           var arrowX=Math.min(nameX+displayName.length*7+9,sectionRight-12);
           var arrow=svgElement("text",{x:arrowX,y:nameY,"class":"sponsor-arrow"});
           arrow.textContent="↗";
@@ -239,7 +239,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
   }
   [
     {id:"challenge",x:580,ribbonY:575,nameY:626,ribbonWidth:300,cardWidth:250,title:"CHALLENGE PARTNER",amount:"30,000円",color:"#FF8A3D"},
-    {id:"official",x:1520,ribbonY:575,nameY:626,ribbonWidth:320,cardWidth:280,title:"OFFICIAL PARTNER",amount:"50,000円",color:"#FF6389"},
+    {id:"official",x:1520,ribbonY:575,nameY:626,ribbonWidth:320,cardWidth:390,maxEntries:3,title:"OFFICIAL PARTNER",amount:"50,000円",color:"#FF6389"},
     {id:"main",x:2970,ribbonY:565,nameY:616,ribbonWidth:340,cardWidth:310,title:"MAIN PARTNER",amount:"100,000円",color:"#8A63F6"}
   ].forEach(addSponsorLabel);
   var routePath=points.map(function(p,i){return(i?"L":"M")+p.x.toFixed(1)+" "+p.y.toFixed(1);}).join(" ");
@@ -298,7 +298,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
     if(name) segment.style.setProperty("--segment-color",color);
     segmentLayer.appendChild(segment);
 
-    var featured=km===39||km===40||km===41||km===42;
+    var featured=km===21||km===39||km===40||km===41||km===42;
     var group=svgElement("g",{"class":"route-marker"+(name?" filled":"")+(featured?" featured":""),"aria-label":km+"km "+(name?name:"募集中")});
     group.style.setProperty("--marker-color",color);
     group.style.setProperty("--label-color",labelColor);
