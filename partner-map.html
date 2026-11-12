@@ -108,7 +108,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
 </main>
 <footer>Make a Move, World is Yours.｜人生は可能性に溢れている</footer>
 
-<script src="partner-data.js?v=20261112-1"></script>
+<script src="partner-data.js?v=20261113-1"></script>
 <script>
 (function(){
   var data=window.PARTNER_MAP_DATA||{updated:"—",partners:{}};
@@ -128,7 +128,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
     return element;
   }
   function partnerColor(km){
-    if(km===21||km===39||km===40) return "#FF6B8B";
+    if(km===21||km===22||km===39||km===40) return "#FF6B8B";
     if(km===41||km===42) return "#8E6BFF";
     return standardPartnerColors[(km-1)%standardPartnerColors.length];
   }
@@ -239,7 +239,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
   }
   [
     {id:"challenge",x:580,ribbonY:575,nameY:626,ribbonWidth:300,cardWidth:250,title:"CHALLENGE PARTNER",amount:"30,000円",color:"#FF8A3D"},
-    {id:"official",x:1520,ribbonY:575,nameY:626,ribbonWidth:320,cardWidth:390,maxEntries:3,title:"OFFICIAL PARTNER",amount:"50,000円",color:"#FF6389"},
+    {id:"official",x:1520,ribbonY:575,nameY:626,ribbonWidth:320,cardWidth:500,maxEntries:4,title:"OFFICIAL PARTNER",amount:"50,000円",color:"#FF6389"},
     {id:"main",x:2970,ribbonY:565,nameY:616,ribbonWidth:340,cardWidth:310,title:"MAIN PARTNER",amount:"100,000円",color:"#8A63F6"}
   ].forEach(addSponsorLabel);
   var routePath=points.map(function(p,i){return(i?"L":"M")+p.x.toFixed(1)+" "+p.y.toFixed(1);}).join(" ");
@@ -298,7 +298,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
     if(name) segment.style.setProperty("--segment-color",color);
     segmentLayer.appendChild(segment);
 
-    var featured=km===21||km===39||km===40||km===41||km===42;
+    var featured=km===21||km===22||km===39||km===40||km===41||km===42;
     var group=svgElement("g",{"class":"route-marker"+(name?" filled":"")+(featured?" featured":""),"aria-label":km+"km "+(name?name:"募集中")});
     group.style.setProperty("--marker-color",color);
     group.style.setProperty("--label-color",labelColor);
