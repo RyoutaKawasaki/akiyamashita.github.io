@@ -17,7 +17,7 @@
   3. 空の配列（[]）は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
-  updated: "2026.11.13",
+  updated: "2026.11.17",
   sponsorIslands: {
     challenge: [], // 30,000円 CHALLENGE PARTNER
     official: [
@@ -41,7 +41,7 @@ window.PARTNER_MAP_DATA = {
     7: "桑島 正道\n株式会社トータルアセットパートナー",
     8: "",
     9: "",
-    10: "",
+    10: { name: "山内麻由\nさぬきうどん溜", url: "https://tamariudon.com/" },
     11: "松家 徹\n自動車整備",
     12: { name: "小古瀬紘子", url: "https://www.instagram.com/hiiiroo2033?exln=MTE3a3Qzem9hNHlk" },
     13: "",
@@ -61,7 +61,7 @@ window.PARTNER_MAP_DATA = {
     27: { name: "八木真理子\nデザインで応援する人", url: "https://www.instagram.com/laughstyle_y/" },
     28: "",
     29: "",
-    30: "",
+    30: { name: "蒲生亜季\n建築業\n株式会社雑賀工務店", url: "https://saiga-k.co.jp/" },
     31: { name: "滝本　海\nお魚イラストレーター\nＵＭＩ", url: "https://www.instagram.com/umi_loves_drawing" },
     32: "",
     33: "",
