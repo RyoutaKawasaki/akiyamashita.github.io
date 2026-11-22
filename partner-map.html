@@ -85,7 +85,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
 <filter id="marker-shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#17395D" flood-opacity=".28"/></filter>
 <linearGradient id="start-gradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ffbb1e"/><stop offset="100%" stop-color="#ff9158"/></linearGradient>
 </defs>
-<image href="partner-map-bg.jpg?v=20261019-3" x="0" y="0" width="3600" height="720" preserveAspectRatio="none"/>
+<image href="partner-map-bg.jpg?v=20261117-1" x="0" y="0" width="3600" height="720" preserveAspectRatio="none"/>
 <rect width="3600" height="720" fill="#16395D" opacity=".08"/>
 <g id="sponsor-island-layer"></g>
 <g id="route-base-layer"></g>
@@ -108,7 +108,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
 </main>
 <footer>Make a Move, World is Yours.｜人生は可能性に溢れている</footer>
 
-<script src="partner-data.js?v=20261117-2"></script>
+<script src="partner-data.js?v=20261122-2"></script>
 <script>
 (function(){
   var data=window.PARTNER_MAP_DATA||{updated:"—",partners:{}};
@@ -239,7 +239,7 @@ footer{padding:30px 18px max(30px,env(safe-area-inset-bottom));text-align:center
   }
   [
     {id:"challenge",x:580,ribbonY:595,nameY:636,ribbonWidth:300,cardWidth:250,title:"CHALLENGE PARTNER",amount:"30,000円",color:"#FF8A3D"},
-    {id:"official",x:1520,ribbonY:595,nameY:636,ribbonWidth:320,cardWidth:500,maxEntries:4,title:"OFFICIAL PARTNER",amount:"50,000円",color:"#FF6389"},
+    {id:"official",x:1520,ribbonY:595,nameY:636,ribbonWidth:320,cardWidth:620,maxEntries:5,title:"OFFICIAL PARTNER",amount:"50,000円",color:"#FF6389"},
     {id:"main",x:2970,ribbonY:585,nameY:626,ribbonWidth:340,cardWidth:310,title:"MAIN PARTNER",amount:"100,000円",color:"#8A63F6"}
   ].forEach(addSponsorLabel);
   var routePath=points.map(function(p,i){return(i?"L":"M")+p.x.toFixed(1)+" "+p.y.toFixed(1);}).join(" ");

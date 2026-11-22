@@ -17,14 +17,15 @@
   3. 空の配列（[]）は「募集中」と表示されます。
 */
 window.PARTNER_MAP_DATA = {
-  updated: "2026.11.17",
+  updated: "2026.11.22",
   sponsorIslands: {
     challenge: [], // 30,000円 CHALLENGE PARTNER
     official: [
       { name: "米光マサヒコ", url: "https://www.instagram.com/yonemasa/" },
       { name: "藤本英矩", url: "https://the-knot.jp/" },
       { name: "松本周", url: "https://www.tax-gian.com/" },
-      { name: "大西孝二", url: "https://menkyo-ryugaku.com/" }
+      { name: "大西孝二", url: "https://menkyo-ryugaku.com/" },
+      { name: "梶原大介", url: "" }
     ],  // 50,000円 OFFICIAL PARTNER
     main: [
       { name: "佐藤幸憲", url: "https://www.instagram.com/yukinosatori0730/" },
@@ -44,7 +45,7 @@ window.PARTNER_MAP_DATA = {
     10: { name: "山内麻由\nさぬきうどん溜", url: "https://tamariudon.com/" },
     11: "松家 徹\n自動車整備",
     12: { name: "小古瀬紘子", url: "https://www.instagram.com/hiiiroo2033?exln=MTE3a3Qzem9hNHlk" },
-    13: "",
+    13: "梶原大介\n株式会社さぬきの農",
     14: "",
     15: "",
     16: { name: "高師由紀\nクレオ歯科・矯正歯科", url: "https://creo-dental.com/" },
